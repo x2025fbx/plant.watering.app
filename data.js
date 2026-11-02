@@ -1,26 +1,13 @@
-// ============================================================
-// data.js — ALL the fake data for your prototype lives here.
-//
-// There is no database. Everything below is made up, and that is
-// on purpose: never put real people's names, emails, phone numbers
-// or addresses in this file.
-//
-// To change what appears on the Explore page, edit LISTINGS.
-// Each item is one card. Keep the same fields (id, name, category,
-// description) or ask Copilot to add new ones everywhere they're needed.
-// ============================================================
-
 const STARTUP = {
-  name: "YourStartup",
-  tagline: "One sentence that says what your startup does.",
-  pitch: "Who is your customer, what problem do they have, and why is your solution better than what they use today?"
+  name: "Leafline",
+  tagline: "A little care, right on time.",
+  pitch: "A simple watering plan that keeps your plants, and your routine, on track."
 };
 
-const LISTINGS = [
-  { id: 1, name: "Sample listing A", category: "Category 1", description: "A short description of this item." },
-  { id: 2, name: "Sample listing B", category: "Category 2", description: "A short description of this item." },
-  { id: 3, name: "Sample listing C", category: "Category 1", description: "A short description of this item." },
-  { id: 4, name: "Sample listing D", category: "Category 3", description: "A short description of this item." },
-  { id: 5, name: "Sample listing E", category: "Category 2", description: "A short description of this item." },
-  { id: 6, name: "Sample listing F", category: "Category 3", description: "A short description of this item." }
+const SAMPLE_PLANTS = [
+  { name: "Monstera", room: "Living room", intervalDays: 7, daysSinceWatered: 9, priority: true },
+  { name: "Snake plant", room: "Bedroom", intervalDays: 18, daysSinceWatered: 18, priority: false },
+  { name: "Golden pothos", room: "Kitchen", intervalDays: 8, daysSinceWatered: 5, priority: false },
+  { name: "Peace lily", room: "Desk", intervalDays: 5, daysSinceWatered: 6, priority: true },
+  { name: "Rubber plant", room: "Entryway", intervalDays: 12, daysSinceWatered: 7, priority: false }
 ];

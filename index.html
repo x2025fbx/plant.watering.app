@@ -3,91 +3,115 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>YourStartup</title>
-  <meta name="description" content="A student startup prototype for BSAD 281.">
+  <title>Leafline | Plant care, on time</title>
+  <meta name="description" content="A simple watering plan for the plants you love.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- =========================================================
-       HEADER: logo text + navigation.
-       Each link points to a "view" further down the page (#home, #explore, #about).
-       ========================================================= -->
   <header class="site-header">
-    <a class="brand" href="#home" id="brand-name">YourStartup</a>
-    <nav aria-label="Main">
-      <a href="#home">Home</a>
-      <a href="#explore">Explore</a>
-      <a href="#about">About</a>
-    </nav>
+    <a class="brand" href="#dashboard" id="brand-name"><span class="brand-mark" aria-hidden="true">L</span>Leafline</a>
+    <a class="header-link" href="#business-model">Our approach</a>
   </header>
 
   <main>
-
-    <!-- =======================================================
-         VIEW 1: HOME — what you do, for whom, and why it matters.
-         ======================================================= -->
-    <section id="home" data-view>
-      <div class="hero">
-        <p class="eyebrow">Prototype</p>
-        <h1 id="tagline">One sentence that says what your startup does.</h1>
-        <p class="lead" id="pitch">
-          Who is your customer, what problem do they have, and why is your
-          solution better than what they use today?
-        </p>
-        <a class="button" href="#explore">See it in action</a>
-      </div>
-
-      <div class="steps">
-        <div class="card">
-          <h2>1. Step one</h2>
-          <p>Describe the first thing a customer does.</p>
+    <section id="dashboard" aria-labelledby="page-title">
+      <div class="page-heading">
+        <div>
+          <p class="eyebrow">YOUR PLANT ROUTINE</p>
+          <h1 id="page-title">A little care,<br>right on time.</h1>
+          <p class="lead">A clear next step for every plant in your home.</p>
         </div>
-        <div class="card">
-          <h2>2. Step two</h2>
-          <p>Describe what happens next.</p>
-        </div>
-        <div class="card">
-          <h2>3. Step three</h2>
-          <p>Describe the result the customer gets.</p>
+        <div class="heading-actions">
+          <p class="today-label" id="today-label"></p>
+          <button class="button" id="add-plant-button" type="button"><span aria-hidden="true">+</span> Add a plant</button>
         </div>
       </div>
+
+      <section class="overview" aria-label="Plant care overview">
+        <div class="overview-item overview-alert">
+          <span class="overview-label">Needs water</span>
+          <strong id="needs-water-count">0</strong>
+          <span>due now or overdue</span>
+        </div>
+        <div class="overview-item">
+          <span class="overview-label">Overdue</span>
+          <strong id="overdue-count">0</strong>
+          <span>past their routine</span>
+        </div>
+        <div class="overview-item">
+          <span class="overview-label">In your care</span>
+          <strong id="plant-count">0</strong>
+          <span>plants in your list</span>
+        </div>
+        <div class="overview-note"><span class="note-mark" aria-hidden="true">i</span><p>Watering needs vary with light, season, and soil. Use these dates as a helpful guide.</p></div>
+      </div>
+
+      <section class="plant-section" aria-labelledby="plant-list-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">THE LINEUP</p>
+            <h2 id="plant-list-title">Your plants</h2>
+          </div>
+          <label class="search">
+            <span class="visually-hidden">Find a plant</span>
+            <input type="search" id="search-box" placeholder="Find a plant" autocomplete="off">
+          </label>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filter plants">
+          <button type="button" class="filter-button" data-filter="all" aria-pressed="true">All plants</button>
+          <button type="button" class="filter-button" data-filter="needs-water" aria-pressed="false">Needs water <span id="filter-due-count">0</span></button>
+          <button type="button" class="filter-button" data-filter="upcoming" aria-pressed="false">Coming up</button>
+        </div>
+
+        <div class="plant-list" id="plant-list" aria-live="polite"></div>
+        <div class="empty-state" id="empty-message" hidden>
+          <span class="empty-mark" aria-hidden="true">+</span>
+          <h3>No plants here yet</h3>
+          <p>Add a plant to start building your watering routine.</p>
+          <button class="button secondary" id="empty-add-button" type="button">Add your first plant</button>
+        </div>
+      </section>
     </section>
 
-    <!-- =======================================================
-         VIEW 2: EXPLORE — a list built from the fake data in data.js.
-         ======================================================= -->
-    <section id="explore" data-view hidden>
-      <h1>Explore</h1>
-      <p class="muted">These examples are fake. They come from <code>data.js</code>.</p>
-
-      <label class="search">
-        <span>Search</span>
-        <input type="search" id="search-box" placeholder="Type to filter…">
-      </label>
-
-      <p class="muted" id="saved-count"></p>
-      <div class="grid" id="listing-grid"></div>
-      <p class="empty" id="empty-message" hidden>Nothing matches your search.</p>
+    <section class="business-model" id="business-model" aria-labelledby="business-title">
+      <div class="business-copy">
+        <p class="eyebrow">GROWING THE RIGHT WAY</p>
+        <h2 id="business-title">Helpful first.<br>Never ad-heavy.</h2>
+        <p>Watering reminders should stay simple and free. A future paid plan could add shared household schedules and vacation care.</p>
+      </div>
+      <div class="business-next">
+        <span class="business-number">NEXT, NOT NOW</span>
+        <h3>Plant sitters, when the community is ready</h3>
+        <p>Booking trusted local sitters could earn a small fee per completed booking. It needs vetting, reliable local coverage, and clear safety policies, so it makes more sense after people already use Leafline.</p>
+      </div>
     </section>
-
-    <!-- =======================================================
-         VIEW 3: ABOUT — your team and your story.
-         ======================================================= -->
-    <section id="about" data-view hidden>
-      <h1>About us</h1>
-      <p>Tell the story of why your team started this company.</p>
-      <p>Use first names only, or no names at all — this site is public.</p>
-    </section>
-
   </main>
 
-  <!-- Keep this footer. Your site must say it is a student project. -->
   <footer class="site-footer">
-    <p>Student prototype for BSAD 281 at St. Francis Xavier University. Not a real company — all data is fictional.</p>
+    <p>Leafline is a student prototype for BSAD 281 at St. Francis Xavier University. Plant data stays in this browser; no reminders are sent.</p>
   </footer>
 
-  <!-- Scripts load in this order: data first, then the code that uses it. -->
+  <dialog class="plant-dialog" id="plant-dialog" aria-labelledby="dialog-title">
+    <form id="plant-form">
+      <div class="dialog-heading">
+        <div><p class="eyebrow">YOUR COLLECTION</p><h2 id="dialog-title">Add a plant</h2></div>
+        <button class="icon-button" id="close-dialog" type="button" aria-label="Close">×</button>
+      </div>
+      <label class="field-label" for="plant-name">Plant name</label>
+      <input id="plant-name" name="name" type="text" maxlength="50" placeholder="e.g. Monstera" required>
+      <label class="field-label" for="plant-room">Room <span>(optional)</span></label>
+      <input id="plant-room" name="room" type="text" maxlength="40" placeholder="e.g. Living room">
+      <div class="field-row">
+        <div><label class="field-label" for="plant-interval">Water every</label><div class="input-suffix"><input id="plant-interval" name="intervalDays" type="number" min="1" max="365" value="7" required><span>days</span></div></div>
+        <div><label class="field-label" for="plant-last-watered">Last watered</label><input id="plant-last-watered" name="lastWatered" type="date" required></div>
+      </div>
+      <label class="priority-check"><input name="priority" type="checkbox"><span>Prioritize this plant</span></label>
+      <div class="dialog-actions"><button class="button secondary" id="cancel-dialog" type="button">Cancel</button><button class="button" type="submit">Add plant</button></div>
+    </form>
+  </dialog>
+
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
